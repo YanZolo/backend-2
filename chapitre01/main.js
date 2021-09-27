@@ -1,5 +1,5 @@
 
-const authors = require('./data.js')
+const authors = require('./dataAuthors.js')
 const express = require('express');
 const app = express()
 const port = 3003;
