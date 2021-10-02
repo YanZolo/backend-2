@@ -1,18 +1,33 @@
 const express = require('express');
+const cors = require('cors')
 const app = express();
 const port = 8080;
-const student = [];
+app.use(cors());
+app.use(express.json())
+app.use(express.urlencoded({
+    extended: true
+}));
 
-app.use(express.static('public'));
+
+const student = ["sofiane","abdelkader","habiba","rachid","khalid","redouane","moustapha","simo"];
+
+
+// app.use(express.static('public'));
 
 app.get('/students', (req,res)=>{
-    res.redirect('/students/add', {student: req.body.student})
+    res.json(student);
 });
+
 app.post('/students', (req,res)=>{
+    console.log(req.body.student);    
+    student.push(req.body.student);
+    console.log('student :>> ', student);
+    res.send('student name added');
 
 });
 
 
 app.listen(port, ()=>{
-    console.log(`server started at port: ${port}`)
+    console.log(`server started at port: ${port}`);
+    console.log('student :>> ', student);
 });

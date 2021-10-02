@@ -9,11 +9,13 @@ import Home from './Views/home/Home';
 const App = () => {
   return (
     <BrowserRouter>
-    <Navigation />
-      <Switch>
-        <Route exact path='/' component={Formulaire} />
-        <Route exact path='/students/add' component={Home} />
-      </Switch>
+      <div className='container-principal'>
+        <Navigation />
+        <Switch>
+          <Route exact path='/' component={Formulaire} />
+          <Route exact path='/students/add' component={Home} />
+        </Switch>
+      </div>
     </BrowserRouter>
   )
 }
