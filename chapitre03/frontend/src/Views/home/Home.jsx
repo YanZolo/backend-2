@@ -6,7 +6,7 @@ const Home = (props) => {
         <div>
             <h1>Added student</h1>
             <p>Student <b>[{props.history.location.state}]</b> has been added</p>
-            <a href="http://localhost:3000/">goBack</a>
+            <a href="http://localhost:8080/">goBack</a>
         </div>
     )
 }
