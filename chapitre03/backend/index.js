@@ -8,26 +8,22 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+const students = ["sofiane","abdelkader","habiba","rachid","khalid","redouane","moustapha","simo"];
+app.use(express.static('public/build'));
 
-const student = ["sofiane","abdelkader","habiba","rachid","khalid","redouane","moustapha","simo"];
-
-
-// app.use(express.static('public'));
 
 app.get('/students', (req,res)=>{
-    res.json(student);
+    res.json(students);
 });
 
 app.post('/students', (req,res)=>{
-    console.log(req.body.student);    
-    student.push(req.body.student);
-    console.log('student :>> ', student);
-    res.send('student name added');
+    students.push(req.body.student);
+    res.json(students);
 
 });
 
 
 app.listen(port, ()=>{
     console.log(`server started at port: ${port}`);
-    console.log('student :>> ', student);
+    console.log('student :>> ', students);
 });
